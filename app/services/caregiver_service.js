@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const email_validator = require('email-validator');
 const Enum = require('../common/enum');
 const Custom_Error = require('../common/error/custom_error');
@@ -9,8 +10,6 @@ const Caregiver = require('../models/Caregiver');
 
 module.exports = {
     create_caregiver: async(caregiver_data, transaction) => {
-        caregiver_data.email = caregiver_data.email.toLowerCase();
-
         const { first_name, last_name, gender, race, mobile_number, email, password } = caregiver_data;
         checker.ifEmptyThrowError(first_name, Error.FIRST_NAME_REQUIRED);
         checker.ifEmptyThrowError(last_name, Error.LAST_NAME_REQUIRED);
@@ -19,6 +18,8 @@ module.exports = {
         checker.ifEmptyThrowError(mobile_number, Error.MOBILE_NUMBER_REQUIRED);
         checker.ifEmptyThrowError(email, Error.EMAIL_REQUIRED);
         checker.ifEmptyThrowError(password, Error.PASSWORD_REQUIRED);
+
+		caregiver_data.email = caregiver_data.email.toLowerCase();
 
         if(!email_validator.validate(email)) {
             throw new Custom_Error(Error.EMAIL_INVALID);
@@ -44,5 +45,7 @@ module.exports = {
         caregiver_data.password = await password_helper.hash_password(password);
 
         const caregiver = await Caregiver.create(caregiver_data, { transaction });
+
+		return caregiver;
     }
 };
