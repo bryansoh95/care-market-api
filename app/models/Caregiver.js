@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const {
-  INTEGER, Model, STRING
+  BOOLEAN, INTEGER, Model, STRING
 } = Sequelize;
 const sequelize = require('../../database');
 
@@ -23,6 +23,14 @@ Caregiver.init(
       type: STRING,
       allowNull: false
     },
+    gender: {
+        type: STRING,
+        allowNull: false
+        },
+    race: {
+        type: STRING,
+        allowNull: false
+    },
     mobile_number: {
       type: STRING,
       allowNull: false,
@@ -32,6 +40,30 @@ Caregiver.init(
       type: STRING,
       allowNull: false,
       unique: true
+    },
+    password: {
+        type: STRING,
+        allowNull: false
+    },
+    is_befriender: {
+        type: BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    },
+    is_medical_escort: {
+        type: BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    },
+    is_nurse: {
+        type: BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    },
+    enabled: {
+        type: BOOLEAN,
+        allowNull: false,
+        defaultValue: true
     }
   },
   {
