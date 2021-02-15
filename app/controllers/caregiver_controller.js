@@ -16,5 +16,17 @@ module.exports = {
 		} catch (error) {
 			send_error_response(res, error);
 		}
+	},
+
+	retieve_caregiver: async (req, res) => {
+		try {
+			const { id } = req.params;
+			
+			const caregiver = await caregiver_service.retrieve_caregiver(id);
+
+			return res.status(200).send(caregiver);
+		} catch (error) {
+			send_error_response(res, error);
+		}
 	}
 };

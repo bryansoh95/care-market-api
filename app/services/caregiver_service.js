@@ -47,5 +47,13 @@ module.exports = {
         const caregiver = await Caregiver.create(caregiver_data, { transaction });
 
 		return caregiver;
+    },
+
+    retrieve_caregiver: async (id) => {
+        const caregiver = await Caregiver.findByPk(id);
+
+        checker.ifEmptyThrowError(caregiver, Error.CAREGIVER_NOT_FOUND);
+
+        return caregiver;
     }
 };

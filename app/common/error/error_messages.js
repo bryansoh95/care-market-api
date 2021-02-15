@@ -1,4 +1,5 @@
 module.exports = {
+    CAREGIVER_NOT_FOUND: 'Caregiver does not exist',
     EMAIL_INVALID: 'Email is invalid',
     EMAIL_NOT_UNIQUE: 'Email is not unique',
     EMAIL_REQUIRED: 'Email is required',
