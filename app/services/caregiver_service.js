@@ -136,7 +136,7 @@ module.exports = {
             checker.if_empty_throw_error(caregiver_data.is_nurse, Error.NURSE_BOOLEAN_REQUIRED);
         }
 
-        caregiver = await Caregiver.update(caregiver_data, { returning: true, transaction });
+        caregiver = await caregiver.update(caregiver_data, { returning: true, transaction });
 
         return caregiver;
     },
