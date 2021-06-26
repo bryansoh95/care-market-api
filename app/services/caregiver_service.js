@@ -7,7 +7,7 @@ const checker = require('../common/checker');
 const password_helper = require('../common/helpers/password_helper');
 
 const Caregiver = require('../models/Caregiver');
-const { Op } = require('sequelize/types');
+const { Op } = require('sequelize');
 
 module.exports = {
     create_caregiver: async(caregiver_data, transaction) => {
@@ -56,6 +56,12 @@ module.exports = {
         checker.if_empty_throw_error(caregiver, Error.CAREGIVER_NOT_FOUND);
 
         return caregiver;
+    },
+
+    retrieve_all_caregivers: async () => {
+        const caregivers = await Caregiver.findAll();
+        
+        return caregivers;
     },
 
     update_caregiver: async (id, caregiver_data, transaction) => {
@@ -131,6 +137,32 @@ module.exports = {
         }
 
         caregiver = await Caregiver.update(caregiver_data, { returning: true, transaction });
+
+        return caregiver;
+    },
+
+    enable_caregiver: async (id, transaction) => {
+        let caregiver = await Caregiver.findByPk(id);
+
+        checker.if_empty_throw_error(caregiver, Error.CAREGIVER_NOT_FOUND);
+        if (caregiver.enabled) {
+            throw new Custom_Error(Error.CAREGIVER_ENABLED);
+        }
+
+        caregiver = await caregiver.update({ 'enabled': true }, { returning: true, transaction });
+
+        return caregiver;
+    },
+
+    disable_caregiver: async (id, transaction) => {
+        let caregiver = await Caregiver.findByPk(id);
+
+        checker.if_empty_throw_error(caregiver, Error.CAREGIVER_NOT_FOUND);
+        if (!caregiver.enabled) {
+            throw new Custom_Error(Error.CAREGIVER_DISABLED);
+        }
+
+        caregiver = await caregiver.update({ 'enabled': false }, { returning: true, transaction });
 
         return caregiver;
     }

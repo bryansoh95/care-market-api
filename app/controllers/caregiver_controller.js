@@ -18,7 +18,7 @@ module.exports = {
 		}
 	},
 
-	retieve_caregiver: async (req, res) => {
+	retrieve_caregiver: async (req, res) => {
 		try {
 			const { id } = req.params;
 			

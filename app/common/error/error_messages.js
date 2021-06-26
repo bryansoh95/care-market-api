@@ -1,6 +1,8 @@
 module.exports = {
     ACCOUNT_CANNOT_BE_ENABLED_DISABLED: 'Account cannot be enabled/disabled',
     BEFRIENDER_BOOLEAN_REQUIRED: 'Befriender boolean is required',
+    CAREGIVER_DISABLED: 'Caregiver already disabled',
+    CAREGIVER_ENABLED: 'Caregiver already enabled',
     CAREGIVER_NOT_FOUND: 'Caregiver does not exist',
     EMAIL_INVALID: 'Email is invalid',
     EMAIL_NOT_UNIQUE: 'Email is not unique',
