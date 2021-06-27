@@ -9,5 +9,8 @@
         "user": "postgres",
         "password": "postgres",
         "database": "care-market"
+    },
+    "jwt": {
+        "private_key": "private_key"
     }
 }

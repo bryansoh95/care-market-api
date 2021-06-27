@@ -1,6 +1,7 @@
 const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 const email_validator = require('email-validator');
+const config = require('config');
 const Enum = require('../common/enum');
 const Custom_Error = require('../common/error/custom_error');
 const Error = require('../common/error/error_messages');
@@ -178,7 +179,7 @@ module.exports = {
         email = email.toLowerCase();
     
         const caregiver = await Caregiver.findOne({ where: { email } });
-        checker.if_empty_throw_error(caregiver, Constants.Error.CustomerNotFound);
+        checker.if_empty_throw_error(caregiver, Error.CAREGIVER_NOT_FOUND);
     
         if (!caregiver.enabled) {
           throw new Custom_Error(Error.CAREGIVER_DISABLED);
