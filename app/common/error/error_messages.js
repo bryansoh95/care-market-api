@@ -1,8 +1,8 @@
 module.exports = {
     ACCOUNT_CANNOT_BE_ENABLED_DISABLED: 'Account cannot be enabled/disabled',
     BEFRIENDER_BOOLEAN_REQUIRED: 'Befriender boolean is required',
-    CAREGIVER_DISABLED: 'Caregiver already disabled',
-    CAREGIVER_ENABLED: 'Caregiver already enabled',
+    CAREGIVER_DISABLED: 'Caregiver disabled',
+    CAREGIVER_ENABLED: 'Caregiver enabled',
     CAREGIVER_NOT_FOUND: 'Caregiver does not exist',
     EMAIL_INVALID: 'Email is invalid',
     EMAIL_NOT_UNIQUE: 'Email is not unique',
@@ -17,6 +17,7 @@ module.exports = {
     MOBILE_NUMBER_REQUIRED: 'Mobile number is required',
     NURSE_BOOLEAN_REQUIRED: 'Nurse boolean is required',
     PASSWORD_CANNOT_CHANGE: 'Password cannot be changed',
+    PASSWORD_INCORRECT: 'Password is incorrect',
     PASSWORD_REQUIRED: 'Password is required',
     PASSWORD_WEAK: 'Password requires at least 8 characters, 1 lowercase letter, 1 uppercase letter, 1 numeric digit, and 1 special character',
     RACE_REQUIRED: 'Race is required',

@@ -85,5 +85,17 @@ module.exports = {
 		} catch (error) {
 			send_error_response(res, error);
 		}		
+	},
+
+	login_caregiver: async (req, res) => {
+		try {
+			const { email, password } = req.body;
+
+			const { caregiver, token } = await caregiver_service.login_caregiver(email, password);
+
+			return res.status(200).send({ caregiver, token });
+		} catch (error) {
+			send_error_response(res, error, 401);
+		}
 	}
 };

@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const jwt = require('jsonwebtoken');
 const email_validator = require('email-validator');
 const Enum = require('../common/enum');
 const Custom_Error = require('../common/error/custom_error');
@@ -165,5 +166,36 @@ module.exports = {
         caregiver = await caregiver.update({ 'enabled': false }, { returning: true, transaction });
 
         return caregiver;
-    }
+    },
+
+    login_caregiver: async(email, password) => {    
+        checker.if_empty_throw_error(email, Error.EMAIL_REQUIRED);
+        checker.if_empty_throw_error(password, Error.PASSWORD_REQUIRED);
+        
+        email = email.trim();
+        password = password.trim();
+        
+        email = email.toLowerCase();
+    
+        const caregiver = await Caregiver.findOne({ where: { email } });
+        checker.if_empty_throw_error(caregiver, Constants.Error.CustomerNotFound);
+    
+        if (!caregiver.enabled) {
+          throw new Custom_Error(Error.CAREGIVER_DISABLED);
+        }
+    
+        if (!(await password_helper.compare_password(password, caregiver.password))) {
+          throw new Custom_Error(Error.PASSWORD_INCORRECT);
+        };
+    
+        const token = jwt.sign(
+          {
+            id: caregiver.id,
+          },
+          config.get('jwt.private_key'),
+          { expiresIn: '1d' }
+        );
+    
+        return { caregiver, token };
+      }
 };
