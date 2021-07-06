@@ -179,7 +179,7 @@ module.exports = {
         email = email.toLowerCase();
     
         const caregiver = await Caregiver.findOne({ where: { email } });
-        checker.if_empty_throw_error(caregiver, Error.CAREGIVER_NOT_FOUND);
+        checker.if_empty_throw_error(caregiver, Error.CAREGIVER_NOT_FOUND + ': ' + email);
     
         if (!caregiver.enabled) {
           throw new Custom_Error(Error.CAREGIVER_DISABLED);
