@@ -1,4 +1,5 @@
 const Caregiver = require('./app/models/Caregiver');
+const Partner = require('./app/models/Partner');
 
 const sequelize = require('./database');
 

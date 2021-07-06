@@ -52,7 +52,6 @@ module.exports = {
 
 			return res.status(200).send(caregiver);
 		} catch (error) {
-			console.log(error)
 			send_error_response(res, error);
 		}
 	},

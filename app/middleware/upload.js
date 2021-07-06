@@ -6,8 +6,8 @@ const { send_error_response } = require('../common/error/error_handler');
 
 module.exports = {
     pre_upload_check_image: async (req, res, next) => {
-        try {
-            const file = req.files[0];
+        try {            
+            const file = req.file;
 
             checker.if_empty_throw_error(file, Error.FILE_REQUIRED);
             if (file.filename.slice(-4) !== '.png' && file.filename.slice(-4) !== '.jpg' && file.filename.slice(-5) !== '.jpeg') {

@@ -73,5 +73,4 @@ Caregiver.init(
   }
 );
 
-
 module.exports = Caregiver;

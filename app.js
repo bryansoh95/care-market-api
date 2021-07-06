@@ -7,6 +7,7 @@ const routes = require('./app/routes');
 
 const app = express();
 const assetsDir = path.join(__dirname, '/app/assets');
+let i = 0;
 const storage = multer.diskStorage({
     destination: './app/assets',
     filename: (req, file, next) => {

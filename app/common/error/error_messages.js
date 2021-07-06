@@ -17,6 +17,7 @@ module.exports = {
     MEDICAL_ESCORT_BOOLEAN_REQUIRED: 'Medical escort boolean is required',
     MOBILE_NUMBER_NOT_UNIQUE: 'Mobile number is not unique',
     MOBILE_NUMBER_REQUIRED: 'Mobile number is required',
+    NAME_REQUIRED: 'Name is required',
     NURSE_BOOLEAN_REQUIRED: 'Nurse boolean is required',
     PASSWORD_CANNOT_CHANGE: 'Password cannot be changed',
     PASSWORD_INCORRECT: 'Password is incorrect',
