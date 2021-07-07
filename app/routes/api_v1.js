@@ -32,6 +32,7 @@ router.put('/caregiver/disable/:id', caregiver_controller.disable_caregiver);
 router.put('/caregiver/:id', caregiver_controller.update_caregiver);
 
 // Partner
+router.get('/partners', partner_controller.retrieve_all_partners);
 router.post('/partner/addImage', multer_upload.single('file'), upload.pre_upload_check_image, partner_controller.add_partner_image);
 router.post('/partner', partner_controller.create_partner);
 

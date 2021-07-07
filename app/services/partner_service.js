@@ -7,6 +7,12 @@ const checker = require('../common/checker');
 const Partner = require('../models/Partner');
 
 module.exports = {
+    retrieve_all_partners: async () => {
+        const partners = await Partner.findAll();
+
+        return partners;
+    },
+    
     create_partner: async (partner_data, transaction) => {
         const { name, email, image } = partner_data;
         
