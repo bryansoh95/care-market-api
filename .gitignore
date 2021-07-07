@@ -2,3 +2,4 @@ node_modules
 package-lock.json
 config/development.json
 launch.json
+/app/assets

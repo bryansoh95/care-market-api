@@ -20,6 +20,7 @@ const upload = require('../middleware/upload');
 
 // Controllers
 const caregiver_controller = require('../controllers/caregiver_controller');
+const company_controller = require('../controllers/company_controller');
 const partner_controller = require('../controllers/partner_controller');
 
 // Caregiver
@@ -30,6 +31,10 @@ router.post('/caregiver', caregiver_controller.create_caregiver);
 router.put('/caregiver/enable/:id', caregiver_controller.enable_caregiver);
 router.put('/caregiver/disable/:id', caregiver_controller.disable_caregiver);
 router.put('/caregiver/:id', caregiver_controller.update_caregiver);
+
+// Company
+router.get('/company', company_controller.retrieve_company);
+router.post('/company', company_controller.create_company);
 
 // Partner
 router.get('/partners', partner_controller.retrieve_all_partners);
