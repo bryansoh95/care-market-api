@@ -1,15 +1,15 @@
 module.exports = {
     Gender: {
-		FEMALE: 'Female',
-		MALE: 'Male',
-		OTHERS: 'Others'
+		FEMALE: 'FEMALE',
+		MALE: 'MALE',
+		OTHERS: 'OTHERS'
     },
 	Race: {
-		CAUCASIAN: 'Caucasian',
-		CHINESE: 'Chinese',
-		EURASIAN: 'Eurasian',
-		INDIAN: 'Indian',
-		MALAY: 'Malay',
-		OTHERS: 'Others'
+		CAUCASIAN: 'CAUCASIAN',
+		CHINESE: 'CHINESE',
+		EURASIAN: 'EURASIAN',
+		INDIAN: 'INDIAN',
+		MALAY: 'MALAY',
+		OTHERS: 'OTHERS'
 	}
 };

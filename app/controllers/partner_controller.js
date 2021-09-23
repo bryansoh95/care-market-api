@@ -8,7 +8,6 @@ module.exports = {
         try {
             const partners = await partner_service.retrieve_all_partners();
 
-            console.log(partners)
             return res.status(200).send(partners);
         } catch (error) {
             send_error_response(res, error);
